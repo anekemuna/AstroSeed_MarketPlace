@@ -1,0 +1,70 @@
+/*h1{
+    color: red;
+}*/
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E7EEEB;
+}
+
+header {
+    background-color: #4AD199;
+    padding: 10px;
+    
+}
+
+h3{
+    text-align: center;
+}
+
+.box {
+    width: 200px; /* Set the width of the box */
+    height: 100px; /* Set the height of the box */
+    background-color: #4AD199; /* Set the background color of the box */
+    border: 2px solid #000; /* Add a border around the box */
+    border-radius: 10px; /* Add rounded corners to the box */
+    padding: 20px; /* Add padding inside the box */
+    margin: 20px; /* Add margin around the box */
+  }
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    background-color: #96E8C6;
+    padding: 10px;
+    width: 200px; /* Adjust as necessary */
+}
+
+.module {
+    background-color: #4AD199;
+    margin: 10px 0;
+    padding: 10px;
+    /* Additional styling */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.insights {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    /* Additional styling */
+}
+
+.insight-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    /* Additional styling */
+}
+
+footer {
+    background-color: #4AD199;
+    padding: 10px;
+    /* Additional styling */
+}
