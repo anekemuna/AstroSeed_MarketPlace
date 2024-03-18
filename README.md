@@ -1,2 +1,2 @@
 # AstroSeed_MarketPlace
-CSE 485 Capstone
+CSE 485 / 486 Capstone
