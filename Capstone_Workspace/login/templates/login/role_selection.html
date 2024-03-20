@@ -1,0 +1,39 @@
+<!-- login/templates/login/role_selection.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Selection</title>
+    <style>
+        /* Simple CSS to center content on the page */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Marketplace!</h1>
+        <p>Select your role:</p>
+        <div>
+            <button onclick="location.href='{% url 'buyer_home_page' %}'">Buyer</button>
+            <button onclick="location.href='{% url 'seller_home_page' %}'">Seller</button>
+        </div>
+    </div>
+</body>
+</html>
