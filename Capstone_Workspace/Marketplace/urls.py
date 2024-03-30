@@ -11,4 +11,7 @@ urlpatterns = [
     
     #seller homepage
     path('seller/', views.seller_page, name='seller_home_page'),
+    
+    #cart
+    path('cart/', views.cartPayment_page, name='cart'),  # Define URL pattern for the cart
 ]

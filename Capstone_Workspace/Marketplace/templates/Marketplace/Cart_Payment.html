@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart Checkout</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="cart-page">
+  
+  <!-- Cart Header -->
+  <div id="cart-header">
+    <h2>CART</h2>
+  </div>
+  
+  <!-- Orders Container -->
+  <div id="orders-container">
+    <!-- Example of Individual Order Items -->
+    <div class="order-item">
+      <div class="item-details">
+        <img src="path-to-image/lily.jpg" alt="Lily" class="item-image">
+        <div class="item-info">
+          <p class="item-name">Lily - $45</p>
+          <p class="item-desc">Plants organisms that the kingdom.</p>
+          <button class="remove-item">CANCEL</button>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat for each order item -->
+  </div>
+  
+  <!-- Bottom Section -->
+  <div id="bottom-section">
+    
+    <!-- Shipping Method -->
+    <div id="shipping-method">
+      <h3>Shipping Method</h3>
+      <!-- Shipping Options -->
+      <div class="shipping-option">
+        <input type="radio" id="fast-delivery" name="shipping" value="fast">
+        <label for="fast-delivery">Fast delivery (Tomorrow 8AM)</label><br>
+      </div>
+      <div class="shipping-option">
+        <input type="radio" id="normal-delivery" name="shipping" value="normal">
+        <label for="normal-delivery">Normal delivery (4/12/2023)</label><br>
+      </div>
+      <div class="shipping-option">
+        <input type="radio" id="flexible-delivery" name="shipping" value="flexible">
+        <label for="flexible-delivery">Flexible — SAVE $2</label><br>
+      </div>
+    </div>
+    
+    <!-- Pricing Details -->
+    <div id="pricing-details">
+      <h3>Pricing</h3>
+      <!-- Price Information -->
+      <p class="pricing-line"><span>Items:</span> <span>Lily, Potatoes</span></p>
+      <p class="pricing-line"><span>Package:</span> <span>$10</span></p>
+      <p class="pricing-line"><span>Sub Total:</span> <span>$60</span></p>
+      <p class="pricing-line"><span>Tax:</span> <span>$2.5</span></p>
+      <p class="pricing-line total"><span>Check Out Total:</span> <span>$72.5</span></p>
+    </div>
+    
+  </div>
+
+  <!-- Proceed to Payment Button -->
+  <div id="payment-button-container">
+    <button id="proceed-to-payment">Proceed to Payment</button>
+  </div>
+
+</div>
+
+</body>
+</html>

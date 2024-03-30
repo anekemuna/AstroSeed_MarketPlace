@@ -2,449 +2,304 @@
 {% load static %}
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
-<script src="{% static 'myapp/js/scripts.js' %}"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Listings</title>
-
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f8f8f8;
-    box-sizing: border-box;
-    height: 10vh; /* 30% of the viewport height */
-    border-bottom: 1px solid #ddd;
-  }
-  .search-bar {
-    /* Adjust width as desired, for example to 50% of its container */
-    width: 40%;
-    height: 40%;
-    margin: 0 auto; /* Centering the search bar */
-  }
-  .main-content {
-    display: flex;
-    height: 70vh; /* 70% of the viewport height */
-  }
-  .left-sidebar {
-    width: 20%;
-    box-sizing: border-box;
-    padding: 20px;
-    overflow-y: auto;
-    border-right: 2px solid #ddd;
-  }
-  
-  .filters-heading, .filter-category {
-    text-align: center;
-    margin: 0;
-    padding: 10px 0;
-    font-weight: bold;
-  }
-  
-  .filter-group label {
-    display: block;
-    margin: 5px 0;
-    cursor: pointer;
-  }
-  
-  .filter-group label input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  
-  .right-content {
-    flex-grow: 1;
-    height: calc(100vh - 50px); /* Adjusted to full height minus header */
-    overflow-y: auto; /* Enables scrolling when content overflows */
-    box-sizing: border-box;
-    padding: 10px; /* Adjusted padding */
-  }
-  .filters-heading {
-    text-align: center; /* Center text horizontally */
-    margin: 0; /* Remove default margins */
-    padding-top: 10px; /* Add some padding at the top if needed */
-    padding-bottom: 10px; /* Add some padding at the bottom if needed */
-  }
-  
-  /***************************ProductCard********************************/
-  .product-card {
-    display: flex;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px; /* Space between cards */
-  }
-  .product-image img {
-    width: 150px; /* Adjust as needed */
-    height: auto;
-    margin-right: 70px; /* Space between image and info */
-  }
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-grow: 1; /* Ensures the info section fills the remaining space */
-  }
-  .product-info h3 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  .product-description {
-    font-size: 0.9em;
-  }
-  .product-price {
-    font-size: 1em;
-    font-weight: bold;
-  }
-  .add-to-cart-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .add-to-cart-button:hover {
-    background-color: #0056b3;
-  }
-/***********************************************************/
-
-
-/* Container for the icon buttons */
-.icon-buttons-container {
-  display: flex; /* Use flexbox to align items horizontally */
-  justify-content: space-around; /* Space out the icons evenly */
-  align-items: center; /* Center align the icons vertically */
-}
-
-/* buttons for the heart and carton icons */
-.icon-button {
-  background: none;
-  border: 2px solid black; /* Black border around the icons */
-  border-radius: 5px; /* Optional: adds rounded corners to the border */
-  color: black; /* Black color for the icons themselves */
-  cursor: pointer;
-  font-size: 2em; /* Adjust size as needed */
-  padding: 0.5em;
-}
-
-/* Optional: Add some hover effect for the buttons */
-.icon-button:hover {
-  color: #555; /* Change color on hover */
-  border-color: #555; /* Change border color on hover */
-}
-
-/* Reset the default button styles */
-.icon-button:focus {
-  outline: none;
-}
-
-
-/***************option buttons size and looks*******************/
-#categorySelect, button {
-  width: 100%; /* Makes the select and button take the full container width */
-  height: 50px; /* Sets a fixed height for larger touch targets */
-  font-size: 1.2em; /* Increases the text size inside the select and button */
-  padding: 5px; /* Adds some space inside around the text */
-  margin-top: 5px; /* Adds some space above the select and button */
-}
-
-button {
-  background-color: #4CAF50; /* Example background color */
-  color: white; /* Text color */
-  border: 1px solid #398439; /* Border color */
-  cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
-}
-/***************************************************************/
-
-
-
-/* Container for the icon buttons */
-.icon-buttons-container {
-  display: flex; /* Use flexbox to align items horizontally */
-  justify-content: space-between; /* Adjust this to 'space-between' if you want them spaced across the container */
-  align-items: center; /* Center align the icons vertically */
-}
-
-/* buttons for the heart and carton icons */
-.icon-button {
-  background: none;
-  border: 2px solid black; /* Black border around the icons */
-  border-radius: 5px; /* Optional: adds rounded corners to the border */
-  color: black; /* Black color for the icons themselves */
-  cursor: pointer;
-  font-size: 2em; /* Adjust size as needed */
-  padding: 0.2em; /* Reduced padding */
-  margin: 0 5px; /* Adds a little space between the buttons */
-}
-
-/* Optional: Add some hover effect for the buttons */
-.icon-button:hover {
-  color: #555; /* Change color on hover */
-  border-color: #555; /* Change border color on hover */
-}
-
-/* Reset the default button styles */
-.icon-button:focus {
-  outline: none;
-}
-
-
-</style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/buyerhomepage.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listings</title>
 </head>
 <body>
-  <script src="scripts.js"></script>
-  <div class="header">
-    <div>Company Logo</div>
-    
-    <input type="text" id="searchBar" placeholder="Search for fruits...">
-    
-    <div>
-      <button class="icon-button" onclick="location.href='your-favorites-page-url';" title="Favorites">
-        ❤
-      </button>
-      <button class="icon-button" onclick="location.href='your-cart-page-url';" title="Cart">
-        🛒
-      </button>
+    <div class="header">
+        <div>AstroSeed Marketplace</div>
+        <input type="text" id="searchBar" placeholder="Search for greens...">
+        <div class="icon-buttons-container">
+            <button class="icon-button" onclick="location.href='your-favorites-page-url';" title="Favorites">❤</button>
+            <button class="icon-button" onclick="location.href='{% url 'cart' %}';" title="Cart">🛒</button>
+            <button class="icon-button" title="Logout" onclick="location.href='{% url 'login_view' %}';">🚪 Logout</button>
+        </div>
     </div>
-  </div>
 
-<div class="main-content">
-  <div class="left-sidebar">
-    <h2 class="filters-heading">Filters</h2>
+    <div class="main-content">
+        <div class="left-sidebar">
+            <h2 class="filters-heading">Filters</h2>
 
-    <div class="filter-group">
-      <div class="filter-category">Vegetables:</div>
-      <select id="categorySelect">
-        <option value="">--Select an Option--</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <button onclick="refreshPage()">Refresh Page</button>
-      <!-- More options -->
+            <div class="filter-group">
+                <div class="filter-category">Vegetables:</div>
+                <select class="categorySelect">
+                    <option value="">--Select an Option--</option>
+                    <option value="Broccoli">Broccoli</option>
+                    <option value="Carrot">Carrot</option>
+                    <option value="Cauliflower">Cauliflower</option>
+                    <option value="Bell Pepper">Bell Pepper</option>
+                    <option value="Eggplant">Eggplant</option>
+                    <option value="Zucchini">Zucchini</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Tomato">Tomato</option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <div class="filter-category">Micro Greens:</div>
+                <select class="categorySelect">
+                    <option value="">--Select an Option--</option>
+                    <option value="Broccoli Microgreens">Broccoli Microgreens</option>
+                    <option value="Radish Microgreens">Radish Microgreens</option>
+                    <option value="Pea Shoots">Pea Shoots</option>
+                    <option value="Sunflower Microgreens">Sunflower Microgreens</option>
+                    <option value="Wheatgrass">Wheatgrass</option>
+                    <option value="Beet Microgreens">Beet Microgreens</option>
+                    <option value="Amaranth Microgreens">Amaranth Microgreens</option>
+                    <option value="Cilantro Microgreens">Cilantro Microgreens</option>
+                </select>
+            </div>
+
+            
+            <div class="filter-group">
+                <div class="filter-category">Leafy Greens:</div>
+                <select class="categorySelect">
+                    <option value="">--Select an Option--</option>
+                    <option value="Spinach">Spinach</option>
+                    <option value="Kale">Kale</option>
+                    <option value="Lettuce">Lettuce</option>
+                    <option value="Swiss Chard">Swiss Chard</option>
+                    <option value="Arugula">Arugula</option>
+                    <option value="Collard Greens">Collard Greens</option>
+                    <option value="Mustard Greens">Mustard Greens</option>
+                    <option value="Bok Choy">Bok Choy</option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <div class="filter-category">Fruits:</div>
+                <select class="categorySelect">
+                    <option value="">--Select an Option--</option>
+                    <option value="Strawberry">Strawberry</option>
+                    <option value="Blueberry">Blueberry</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Banana">Banana</option>
+                    <option value="Mango">Mango</option>
+                    <option value="Pineapple">Pineapple</option>
+                    <option value="Grapes">Grapes</option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <div class="filter-category">Price:</div>
+                <label><input type="checkbox" id="lowToHigh" name="price" value="low-high"> Low to High</label>
+                <label><input type="checkbox" id="highToLow" name="price" value="high-low"> High to Low</label>
+            </div>
+
+            <!-- New Sorting section for Grid View -->
+            <!---->
+            <div class="filter-group">
+                <div class="filter-category">Sorting:</div>
+                <label>
+                <input type="checkbox" id="gridViewCheckbox" checked> Grid view
+                </label>
+            </div>
+
+              <!-- New filter group for Mixed Boxes -->
+            <div class="filter-group">
+                <div class="filter-category">Extras:</div>
+                <label>
+                    <input type="checkbox" name="mixed_boxes" value="mixed">
+                    Mixed Boxes
+                </label>
+            </div>
+
+        </div>
+
+        <div class="right-content">
+            <!-- Scrollable container for product listings -->
+            <div class="products-list-toggle">
+                <!-- List Checkbox -->
+                <div class="product-card" data-category="Orange">
+                    <div class="product-image">
+                        <img src="{% static 'images/orange.jpg' %}" alt="Orange">
+                    </div>
+                    <div class="product-info">
+                        <h3>Orange</h3>
+                        <p class="seller-name">Seller: John's Farm</p>  <!-- Seller name -->
+                        <div class="rating">  <!-- Rating -->
+                            ★★★★☆ <!-- This is a simple representation; you might use icons or images -->
+                            <span class="review-count">(120 Reviews)</span> <!-- Number of reviews -->
+                        </div>
+                        <p class="date-posted">Posted: 3 days ago</p> <!-- Posting date -->
+                        <p class="product-description">Product Description 1</p>
+                        <p class="product-price">$1.99</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Repeat for other product cards as necessary -->
+                <div class="product-card" data-category="Orange">
+                    <div class="product-image">
+                        <img src="{% static 'images/orange.jpg' %}" alt="Orange">
+                    </div>
+                    <div class="product-info">
+                        <h3>Orange</h3>
+                        <p class="seller-name">Seller: Citrus World</p>
+                        <div class="rating">
+                            ★★★★☆
+                            <span class="review-count">(200 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 2 days ago</p>
+                        <p class="product-description">Fresh and juicy oranges from Florida.</p>
+                        <p class="product-price">$1.99</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Spinach">
+                    <div class="product-image">
+                        <img src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+                    </div>
+                    <div class="product-info">
+                        <h3>Spinach</h3>
+                        <p class="seller-name">Seller: Green Leaf</p>
+                        <div class="rating">
+                            ★★★☆☆
+                            <span class="review-count">(50 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 1 week ago</p>
+                        <p class="product-description">Organic spinach full of vitamins and minerals.</p>
+                        <p class="product-price">$5.78</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Spinach">
+                    <div class="product-image">
+                        <img src="{% static 'images/Spinach2.jpg' %}" alt="Spinach">
+                    </div>
+                    <div class="product-info">
+                        <h3>Spinach</h3>
+                        <p class="seller-name">Seller: Veggie Delight</p>
+                        <div class="rating">
+                            ★★★★☆
+                            <span class="review-count">(75 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 3 days ago</p>
+                        <p class="product-description">Baby spinach leaves, tender and sweet.</p>
+                        <p class="product-price">$3.78</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Strawberry">
+                    <div class="product-image">
+                        <img src="{% static 'images/strawberry.jpeg' %}" alt="Strawberry">
+                    </div>
+                    <div class="product-info">
+                        <h3>Strawberry</h3>
+                        <p class="seller-name">Seller: Berry Farms</p>
+                        <div class="rating">
+                            ★★★★★
+                            <span class="review-count">(300 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 5 days ago</p>
+                        <p class="product-description">Sweet and succulent strawberries, perfect for desserts.</p>
+                        <p class="product-price">$20.00</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Broccoli">
+                    <div class="product-image">
+                        <img src="{% static 'images/broccoli.jpg' %}" alt="Broccoli">
+                    </div>
+                    <div class="product-info">
+                        <h3>Broccoli</h3>
+                        <p class="seller-name">Seller: Healthy Harvest</p>
+                        <div class="rating">
+                            ★★★☆☆
+                            <span class="review-count">(80 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 1 month ago</p>
+                        <p class="product-description">Fresh broccoli florets, high in fiber and vitamins.</p>
+                        <p class="product-price">$2.99</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Strawberry">
+                    <div class="product-image">
+                        <img src="{% static 'images/strawberry.jpeg' %}" alt="Strawberry">
+                    </div>
+                    <div class="product-info">
+                        <h3>Strawberry</h3>
+                        <p class="seller-name">Seller: Fruit Emporium</p>
+                        <div class="rating">
+                            ★★★★★
+                            <span class="review-count">(250 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 2 weeks ago</p>
+                        <p class="product-description">Hand-picked strawberries, sweet and ripe.</p>
+                        <p class="product-price">$7.99</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Orange">
+                    <div class="product-image">
+                        <img src="{% static 'images/orange.jpg' %}" alt="Orange">
+                    </div>
+                    <div class="product-info">
+                        <h3>Orange</h3>
+                        <p class="seller-name">Seller: Orchard Fresh</p>
+                        <div class="rating">
+                            ★★★★☆
+                            <span class="review-count">(150 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 1 day ago</p>
+                        <p class="product-description">Juicy oranges with a tangy taste, freshly picked.</p>
+                        <p class="product-price">$6.01</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Carrot">
+                    <div class="product-image">
+                        <img src="{% static 'images/carrot.jpg' %}" alt="Carrot">
+                    </div>
+                    <div class="product-info">
+                        <h3>Carrot</h3>
+                        <p class="seller-name">Seller: Veggie Farm</p>
+                        <div class="rating">
+                            ★★★☆☆
+                            <span class="review-count">(60 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 3 months ago</p>
+                        <p class="product-description">Crunchy carrots, great for salads and snacks.</p>
+                        <p class="product-price">$0.01</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="Strawberry">
+                    <div class="product-image">
+                        <img src="{% static 'images/strawberry.jpeg' %}" alt="Strawberry">
+                    </div>
+                    <div class="product-info">
+                        <h3>Strawberry</h3>
+                        <p class="seller-name">Seller: Berry Best</p>
+                        <div class="rating">
+                            ★★★★★
+                            <span class="review-count">(320 Reviews)</span>
+                        </div>
+                        <p class="date-posted">Posted: 6 days ago</p>
+                        <p class="product-description">Delicious strawberries, freshly harvested.</p>
+                        <p class="product-price">$100</p>
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
     </div>
-    <div class="filter-group">
-      <div class="filter-category">Micro Greens:</div>
-      <select id="categorySelect">
-        <option value="">--Select an Option--</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <button onclick="refreshPage()">Refresh Page</button>
-      <!-- More options -->
-    </div>
-    <div class="filter-group">
-      <div class="filter-category">Leafy Greens:</div>
-      <select id="categorySelect">
-        <option value="">--Select an Option--</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <button onclick="refreshPage()">Refresh Page</button>
-      <!-- More options -->
-    </div>
-    <div class="filter-group">
-      <div class="filter-category">Fruits:</div>
-      <select id="categorySelect">
-        <option value="">--Select an Option--</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <button onclick="refreshPage()">Refresh Page</button>
-      <!-- More options -->
-    </div>
-    <div class="filter-group">
-      <div class="filter-category">Price:</div>
-      <label><input type="checkbox" name="price" value="low-high"> Low to High</label>
-      <label><input type="checkbox" name="price" value="high-low"> High to Low</label>
-      <!-- More options -->
-    </div>    
-  </div>
-  <div class="right-content">
-    <!-- Scrollable container for product listings -->
-    <!-- Repeat this block for each product (this will be dynamic with Django) -->
-    <!-- Begin product cards -->
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="{% static 'images/strawberry.jpeg' %}" alt="Strawberry">
-      </div>
-      <div class="product-info">
-        <h3>Strawberry</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>orange</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <!-- Place your image here -->
-        <img src="path-to-your-product-image.jpg" alt="Product Image 1">
-      </div>
-      <div class="product-info">
-        <h3>Product Title 1</h3>
-        <p class="product-description">Product Description 1</p>
-        <p class="product-price">Product Price 1</p>
-        <button class="add-to-cart-button">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="scripts.js"></script>
+    <script src="{% static 'myapp/scripts.js' %}"></script>
 </body>
 </html>

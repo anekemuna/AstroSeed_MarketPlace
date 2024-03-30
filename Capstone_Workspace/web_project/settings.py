@@ -28,9 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    #os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'Marketplace', 'static'),
+    'C:/Users/watz1/Documents/Capstone_Workspace/Marketplace/static',
 ]
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login',
+    'Marketplace',
 ]
 STATIC_URL = '/static/'
 
