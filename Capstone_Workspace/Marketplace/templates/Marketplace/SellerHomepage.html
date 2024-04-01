@@ -1,132 +1,237 @@
+<!-- Seller Home Page -->
+<!--CSS & HTML-->>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astro Seed: Online Market Place</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f4f4f4;
-    }
-    header {
-        background: #ddd;
-        padding: 10px;
-        text-align: center;
-        position: relative;
-    }
-    header img.logo {
-        height: 50px;
-    }
-    header h1 {
-        margin: 0;
-        color: #333;
-    }
-    nav {
-        background: green;
-        overflow: auto;
-        padding: 10px 5%;
-    }
-    nav div {
-        float: left;
-        width: 23%;
-        margin: 1%;
-        background: #fff;
-        text-align: center;
-        padding: 20px 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Seed</title>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Oxygen:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: serif;
+            margin: 0;
+            padding: 0;
+            background: #E7EEEB;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        header img.logo {
+            height: 100px;
+            margin-right: auto;
+        }
+        header h1 {
+            font-family: serif;
+            margin-right: auto;
+            color: #333;
+        }
+        .icons {
+            display: flex;
+            gap: 10px;
+        }
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            margin: 0 5px;
+        }
+        .icon-button i {
+            color: #333;
+            font-size: 20px;
+        }
+        .icon-button:hover i { /* Hover effect */
+            color: gray;
+        }
+         /***************/
+
+
+        nav {
+            background: #559C29;
+            overflow: auto;
+            padding: 20px 5%;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        nav div {
+            float: left;
+            width: 23%;
+            margin: 1%;
+            background: #fff;
+            text-align: center;
+            padding: 30px 0;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .nav-button {
+            background: #fff;
+            border: none;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 10px; 
+            width: calc(25% - 20px); 
+            box-sizing: border-box;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-button i {
+            font-size: 2em; 
+            margin-bottom: 0.5em; 
+        }
+        .nav-button p {
+            margin: 0;
+        }
+        /*******************/
+
+        .box {
+        border: 2px solid #559C29;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px; 
+        background: #559C29; 
+        }
+
+        .form-section {
+            background: #559C29;
+            padding: 20px 10%;
+            overflow: auto;
+        }
+        .form-section form {
+            float: left;
+            width: 60%;
+            border-right: 2px solid #ccc;
+        padding-right: 20px;
         box-sizing: border-box;
-    }
-    .form-section {
-        background: #eee;
-        padding: 20px 5%;
-        overflow: auto;
-    }
-    .form-section form {
-        float: left;
-        width: 70%;
-    }
-    .form-section form .form-control {
-        margin-bottom: 10px;
-        width: 100%;
+        }
+        .form-section form .form-control {
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-section form button {
+            background: whitesmoke;
+            color: black;
+            padding: 10px;
+            border: 0;
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        /******/
+        .action-section {
+            float: right;
+            width: 30%;
+        padding-left: 20px;
         box-sizing: border-box;
-    }
-    .form-section form button {
-        background: green;
-        color: white;
-        padding: 10px;
-        border: none;
-        width: 100%;
-    }
-    .action-section {
-        float: right;
-        width: 28%;
-        margin-left: 2%;
-    }
-    .action-section button,
-    .action-section select {
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-    footer {
-        background: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
+
+        }
+        .action-section button,
+        .action-section select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .action-section img {
+            height: 150px;
+        }
+
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
+
 
 <body>
 <header>
-    <img src="logo.png" alt="Astro Seed Seller" class="logo">
+    <img src="astro_logo.jfif" alt="hh" class="logo">
     <h1>Astro Seed: Online Market Place</h1>
+    <!--h2>Seller View</h2-->
+    <!-- Bell and Profile icones -->
+    <div class="icons">
+        <button class="fas fa-bell" onclick="location.href='{% url 'notifications' %}';" title="Notifications"/button>
+        </button>
+        <button class="icon-button" aria-label="User Profile">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+</div>
 </header>
+<br><br>
+
 <nav>
-    <div>
-        <img src="order-management.png" alt="Order Management">
+    <button class="nav-button" onclick = "location.href='{% url 'ordermanagementPage' %}';">
+       <i class="fas fa-tasks"></i>
         <p>Order Management</p>
-    </div>
-    <div>
-        <img src="analytics-dashboard.png" alt="Analytics Dashboard">
+    </button>
+    <button class="nav-button" onclick = "location.href='{% url 'analytics' %}';">
+        <i class="fas fa-chart-line"></i>
         <p>Analytics Dashboard</p>
-    </div>
-    <div>
-        <img src="customer-list.png" alt="Customer List">
+    </button>
+    <button class="nav-button" onclick = "location.href='{% url 'customerlist' %}';">
+        <i class="fas fa-users"></i>
         <p>Customer List</p>
-    </div>
-    <div>
-        <img src="buyer-view.png" alt="Buyer View">
-        <p>Buyer View</p>
-    </div>
+    </button>
+    <button class="nav-button" onclick = "location.href='{% url 'support' %}';">
+        <i class="fas fa-eye"></i>
+        <p>Support</p>
+    </button>
 </nav>
+<br>
+
+<div class="box">
 <div class="form-section">
     <form>
         <input type="text" placeholder="Name" class="form-control">
-        <input type="text" placeholder="$ Price" class="form-control">
+        <input type="Price" placeholder="$ Price" class="form-control">
         <input type="text" placeholder="Type" class="form-control">
         <input type="number" placeholder="Quantity" class="form-control">
         <textarea placeholder="Description" class="form-control"></textarea>
         <button type="button">Upload Images +</button>
-        <button type="submit">Add</button>
+        <button type="button">Add Product</button>
     </form>
+    <!->
     <div class="action-section">
         <button>Edit</button>
         <button>Delete</button>
         <select>
             <option value="lettuce">Lettuce</option>
+            <option value="tomato">Tomato</option>
             <!-- Add more options here -->
         </select>
+        <img src="astro_logo.jfif" class="product">
     </div>
 </div>
+</div>
+
+
 <footer>
     <p>Footer content here</p>
 </footer>
+
 </body>
 </html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 
+    This is an HTML comment
+    You can write text in a comment and the content won't be visible in the page
+-->
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="https://glitch.com/favicon.ico" />
+
+<!--
+    This is the page head - it contains info the browser uses
+    Like the title, which appears on the browser tab but not inside the page
+    Further down you'll see the content that displays in the page
+-->
+<title>Notifications</title>
+
+<!-- The website stylesheet 
+<link rel="stylesheet" href="/style.css" />-->
+<style>
+    /************ styles.CSS ****************/
+
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* Beige */
+    }
+    h1 {
+    color: #008000; /* Green */
+    }
+    .sidebar {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    }
+    .main {
+    float: right;
+    width: 75%;
+    padding: 10px;
+    }
+    .notification {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    }
+    button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%; /* make the buttons take up the full width of the sidebar */
+    text-align: center; /* center the text */
+    box-sizing: border-box; /* include padding and border in the element's total width and height */
+    }
+
+    select {
+    margin: 10px 0;
+    }
+    .circle-btn {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    }
+    .star-btn {
+    cursor: pointer;
+    font-size: 20px;
+    }
+    .star-btn.starred {
+    color: orange;
+    }
+
+    .header {
+    display: flex;
+    align-items: center;
+    }
+
+    /****
+.star-btn {
+display: inline-block;
+width: 0;
+height: 0;
+margin-left: 10px;
+border-right: 10px solid transparent;
+border-bottom: 7px solid #f2f2f2;
+border-left: 10px solid transparent;
+transform: rotate(35deg);
+cursor: pointer;
+}
+.star-btn:before, .star-btn:after {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+}
+.star-btn:before {
+border-right: 10px solid transparent;
+border-bottom: 7px solid #f2f2f2;
+border-left: 10px solid transparent;
+transform: rotate(-35deg);
+top: -4px;
+left: -10px;
+}
+.star-btn:after {
+border-right: 10px solid transparent;
+border-top: 7px solid #f2f2f2;
+border-left: 10px solid transparent;
+transform: rotate(-35deg);
+top: 2px;
+left: -10px;
+}
+.star-btn.starred {
+border-bottom-color: yellow;
+}
+.star-btn.starred:before {
+border-bottom-color: yellow;
+}
+.star-btn.starred:after {
+border-top-color: yellow;
+}
+
+****/
+</style>
+
+<!-- The website JavaScript file -->
+<script>
+    /*
+This is JavaScript code
+*/
+
+    const btn = document.querySelector("button"); // Get the button from the page
+    if (btn) {
+    // Detect clicks on the button
+    btn.onclick = function () {
+        // The 'dipped' class in style.css changes the appearance on click
+        btn.classList.toggle("dipped");
+    };
+    }
+
+    function toggleColor(el) {
+    var allCount = document.getElementById("allCount");
+    var unreadCount = document.getElementById("unreadCount");
+    var readCount = document.getElementById("readCount");
+
+    if (el.style.backgroundColor === "red") {
+        el.style.backgroundColor = "";
+        unreadCount.textContent = parseInt(unreadCount.textContent) - 1;
+        readCount.textContent = parseInt(readCount.textContent) + 1;
+    } else {
+        el.style.backgroundColor = "red";
+        unreadCount.textContent = parseInt(unreadCount.textContent) + 1;
+        readCount.textContent = parseInt(readCount.textContent) - 1;
+    }
+
+    allCount.textContent =
+        parseInt(unreadCount.textContent) + parseInt(readCount.textContent);
+    }
+
+    function toggleStar(el) {
+    var starredCount = document.getElementById("starredCount");
+
+    if (el.classList.contains("starred")) {
+        el.classList.remove("starred");
+        starredCount.textContent = parseInt(starredCount.textContent) - 1;
+    } else {
+        el.classList.add("starred");
+        starredCount.textContent = parseInt(starredCount.textContent) + 1;
+    }
+    }
+</script>
+</head>
+<body>
+<h1>Notifications</h1>
+<div class="sidebar">
+    <button onclick="filterNotifications('all')">
+    All (<span id="allCount">3</span>)
+    </button>
+    <button onclick="filterNotifications('unread')">
+    Unread (<span id="unreadCount">0</span>)
+    </button>
+    <button onclick="filterNotifications('read')">
+    Read (<span id="readCount">3</span>)
+    </button>
+    <button onclick="filterNotifications('starred')">
+    Starred (<span id="starredCount">0</span>)
+    </button>
+</div>
+
+<div class="main">
+    <bold>Sort By </bold>
+    <select>
+    <option selected>By Recent</option>
+    <option>By Oldest</option>
+    </select>
+    <div class="notification" data-read="false" data-starred="false">
+    <div class="header">
+        <div class="circle-btn" onclick="toggleColor(this)"></div>
+        <h2>John Doe messaged you</h2>
+        <div class="star-btn" onclick="toggleStar(this)">☆</div>
+    </div>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+        euismod bibendum laoreet...
+    </p>
+    </div>
+    <div class="notification" data-read="false" data-starred="false">
+    <div class="header">
+        <div class="circle-btn" onclick="toggleColor(this)"></div>
+        <h2>Your Order Is Ready!</h2>
+        <div class="star-btn" onclick="toggleStar(this)">☆</div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+        euismod bibendum laoreet...
+    </p>
+    </div>
+    <div class="notification" data-read="false" data-starred="false">
+    <div class="header">
+        <div class="circle-btn" onclick="toggleColor(this)"></div>
+        <h2>Title Of Notification</h2>
+        <div
+        class="star-btn"
+        onclick="toggleStar(this)"
+        style="text-indent: 25px"
+        >
+        ☆
+        </div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+        euismod bibendum laoreet...
+    </p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,3 +1,5 @@
+/* Define color variables for easy reference */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f8f8f8;
+  background-color: #f5f5dc;
   border-bottom: 3px solid #ddd;
   height: 50px;
 }
@@ -31,7 +33,7 @@ body, html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
   padding: 10px; /* Add some padding inside the search bar */
   border-radius: 5px; /* Optional: rounds the corners of the search bar */
-  width: 50%; /* Adjust width as needed */
+  width: 40%; /* Adjust width as needed */
   box-sizing: border-box; /* Include padding and border in the element's size */
 }
 
@@ -197,14 +199,14 @@ body, html {
 }
 .add-to-cart-button {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 .add-to-cart-button:hover {
-  background-color: #0056b3;
+  background-color: #035817;
 }
 /**********************************************************************/
 
@@ -258,5 +260,23 @@ button {
 }
 
 
+/* COLOR SCHEME AND FONT SCHEME */
+/* Set default font styles */
+body {
+  background-color: #f5f5dc; /* beige background */
+  font-family: 'Oxygen', sans-serif; /* Default font */
+  color: #333; /* Default text color, you can choose what you prefer */
+}
 
-  
+/* Style for headers using Nunito font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  color: #559C29; /* Dark green color for headers */
+}
+
+/* Specific module styling */
+.module {
+  background-color: #559C29; /* Dark green background for modules */
+  color: #fff; /* White text for modules */
+}
+

@@ -235,6 +235,58 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+
+    //sorting by date!
+    // Function to sort products by date
+    function sortProductsByDate(isLatest) {
+        const productsContainer = document.querySelector('.right-content');
+        let products = Array.from(productsContainer.getElementsByClassName('product-card'));
+
+        // Sort products by posted date
+        products.sort((a, b) => {
+            const dateA = new Date(a.dataset.postedDate);
+            const dateB = new Date(b.dataset.postedDate);
+            return isLatest ? dateB - dateA : dateA - dateB;
+        });
+
+        // Clear the products container and append sorted products
+        productsContainer.innerHTML = '';
+        products.forEach(product => productsContainer.appendChild(product));
+    }
+
+    function resetToGridDefault() {
+        if (!latestCheckbox.checked && !earliestCheckbox.checked) {
+            // Call your default grid resetting function here
+            // This is a placeholder function; replace with your actual function
+            resetGridToDefault();
+        }
+    }
+
+    // Event listeners for the checkboxes
+    document.getElementById('sortLatestCheckbox').addEventListener('change', function() {
+        // If the latest checkbox is checked
+        if (this.checked) {
+            // Uncheck the earliest checkbox and sort by latest date
+            document.getElementById('sortEarliestCheckbox').checked = false;
+            sortProductsByDate(true);
+        } else {
+            // If unchecked, reset to the original grid view
+            resetToGridDefault();
+        }
+    });
+
+    document.getElementById('sortEarliestCheckbox').addEventListener('change', function() {
+        // If the earliest checkbox is checked
+        if (this.checked) {
+            // Uncheck the latest checkbox and sort by earliest date
+            document.getElementById('sortLatestCheckbox').checked = false;
+            sortProductsByDate(false);
+        } else {
+            // If unchecked, reset to the original grid view
+            resetToGridDefault();
+        }
+    });
+    
 });
 
 
