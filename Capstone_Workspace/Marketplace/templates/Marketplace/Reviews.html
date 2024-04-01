@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!--
+      This is the page head - it contains info the browser uses
+      Like the title, which appears on the browser tab but not inside the page
+      Further down you'll see the content that displays in the page
+    -->
+    <title>Reviews</title>
+
+    <!-- The website stylesheet 
+    <link rel="stylesheet" href="/style.css" />-->
+    <style>
+      /************ styles.CSS ****************/
+
+.product-section {
+    display: flex;
+    align-items: center;
+}
+
+.seller-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.product-info {
+    flex: 2;
+}
+
+.seller-info img {
+    border-radius: 50%;
+}
+
+.product-info img {
+    max-width: 100px;
+}
+
+.product-info h2, .product-info p {
+   margin: 0;
+}
+
+button {
+   margin-top: 10px;
+   padding: 10px;
+   cursor: pointer;
+}
+.reviews-section {
+    margin-top: 20px;
+}
+
+.overall-rating {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+   /* Style for stars rating */
+}
+
+.top-reviews {
+   margin-top: 20px;
+}
+
+.review {
+   display: flex;
+   align-items: start;
+   margin-bottom: 20px;
+}
+
+.review img {
+   border-radius: 50%;
+   max-width: 50px; 
+}
+
+.review-content {
+   padding-left: 10px;
+}
+
+
+    </style>
+
+    <!-- The website JavaScript file -->
+    <script>
+      /*
+  This is JavaScript code
+*/
+
+    </script>
+  </head>
+  <body>
+
+<div class="product-section">
+    <div class="seller-info">
+        <img src="seller_image.png" alt="Seller Icon" style="width:100px;height:100px;">
+        <p>Seller Name</p>
+    </div>
+    <div class="product-info">
+        <img src="product_image.png" alt="Product Icon" style="width:150px;height:100px;">
+        <h2>Product Name</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero...</p>
+        <button>View Other Products By This Seller</button>
+        <button>View Similar Products By Other Sellers</button>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <div class="overall-rating">
+        <h3>Overall Rating</h3>
+        <div class="stars">
+            <!-- Add star icons here -->
+        </div>
+        <p>138 Reviews</p>
+    </div>
+
+    <div class="top-reviews">
+        <h3>Top reviews</h3>
+        
+        <!-- First Review -->
+        <div class="review">
+            <img src="profile-icon.png" alt="Reviewer Icon">
+            <div class="review-content">
+                <h4>Title Of Post</h4>
+                <!-- Add star icons here -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio...</p>
+            </div>
+        </div>
+
+         <!-- Second Review -->
+         <!-- ... Similar structure as first review ... -->
+
+    </div>
+</div>
+
+
+    
+  </body>
+</html>
