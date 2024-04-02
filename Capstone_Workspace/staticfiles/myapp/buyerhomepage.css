@@ -1,0 +1,282 @@
+/* Define color variables for easy reference */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f5dc;
+  border-bottom: 3px solid #ddd;
+  height: 50px;
+}
+  
+.logo {
+  height: 50px; /* Adjust to fit your actual logo size */
+}
+  
+.search-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+  
+#searchBar {
+  background-color: #f2f2f2; /* A light grey, change as you prefer */
+  border: 1px solid #cccccc; /* A subtle border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+  padding: 10px; /* Add some padding inside the search bar */
+  border-radius: 5px; /* Optional: rounds the corners of the search bar */
+  width: 40%; /* Adjust width as needed */
+  box-sizing: border-box; /* Include padding and border in the element's size */
+}
+
+/* If you want to style the placeholder text as well */
+#searchBar::placeholder {
+  color: #888888; /* A medium grey for placeholder text */
+}
+
+.main-content {
+  display: flex;
+  
+}
+.left-sidebar {
+  width: 290px; /* Or whatever width you desire */
+  flex-shrink: 0; /* Prevents the sidebar from shrinking */
+  border-right: 2px solid #ccc; /* Keeps the border line */
+}
+
+/* If you also want to ensure the border spans the full height of the main content area, you might want to set equal heights */
+.main-content {
+  display: flex;
+}
+
+.filter-category {
+  text-align: center; /* Center-align the text */
+  margin-bottom: 0.5rem; /* Add some space below the title */
+}
+
+/* Aligns the checkbox and its label inline and centers them vertically */
+.filter-group label {
+  display: flex;
+  align-items: center; /* This will vertically center the text with the checkbox */
+  margin-bottom: 10px; /* Adds some space below each label */
+}
+
+/* Styles for select elements */
+.categorySelect {
+  display: block;
+  margin: 0 auto 20px; /* Add bottom margin for spacing */
+  width: 80%;
+  max-width: 250px;
+}
+
+/* Adjusts spacing for the checkbox itself */
+.filter-group input[type="checkbox"] {
+  margin-right: 10px; /* Adds space to the right of the checkbox */
+  /* If you want to increase the size of the checkboxes, you can use the 'transform' property */
+  transform: scale(1.2); /* Adjust the number to increase or decrease the size */
+}
+
+/* Adjusts the styling for the category title */
+.filter-category {
+  margin-bottom: 15px; /* Adds space below the category title */
+  font-weight: bold; /* Optional: makes the category title bold */
+  text-align: left; /* Aligns the category title to the left */
+}
+
+/* Adds padding to the overall filter group for better spacing */
+.filter-group {
+  padding: 15px; /* Adds padding inside the filter group */
+  border-bottom: 1px solid #ccc; /* Optional: adds a separator line between filter groups */
+}
+
+/* Removes the bottom border from the last filter group for a cleaner look */
+.filter-group:last-of-type {
+  border-bottom: none;
+}
+
+.right-content {
+  display: flex; /* Continue to use flexbox */
+  flex-wrap: wrap; /* Allow cards to wrap to next line */
+  justify-content: space-around; /* This will place equal space around all items */
+  align-items: flex-start; /* Align items at the start of the container vertically */
+  padding: 0 10px; /* Equal padding on left and right sides of the container */
+  gap: 5px;
+}
+
+.filters-heading {
+  text-align: center; /* Center text horizontally */
+  margin: 0; /* Remove default margins */
+  padding-top: 10px; /* Add some padding at the top if needed */
+  padding-bottom: 10px; /* Add some padding at the bottom if needed */
+}
+
+/***************************ProductCard********************************/
+/* grid-view */
+.right-content.grid-view .product-card {
+  margin: 10px;
+  display: inline-block;
+}
+/* end grid-view */
+
+
+/*LIST VIEW*/
+/* Ensure this is only for list view and doesn't affect grid view */
+.right-content.list-view .product-card {
+  flex: 0 0 auto;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: start; /* Align items to the start of the card */
+  height: 100%;
+  width: 100%; /* Fit to the container width */
+  box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+}
+.right-content.list-view .product-image {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 30%; /* Set a fixed width for the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 2%; /* Add some space between image and description */
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+  overflow: hidden; /* Hide parts of the image that exceed the container size */
+}
+.right-content.list-view .product-info {
+  width: 68%; /* Set the width for the info */
+}
+/*END OF LIST VIEW*/
+
+.product-card {
+  flex: 0 0 auto; /* Do not grow or shrink */
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 320px; /* Or less, depending on how many cards per row */
+  height: 500px; /* Adjust the height as needed */
+  /* Remove display: flex if not using flexbox to align items internally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased alpha for darker shadow */
+  transition: box-shadow 0.3s ease-in-out; /* Optional: adds a transition effect when the shadow changes */
+  overflow: hidden;
+}
+.product-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Larger shadow on hover for interactive effect */
+}
+.product-image {
+  height: 200px; /* Fixed height for image container */
+  width: 100%; /* Image container takes full width of the card */
+  display: flex; /* Using flex to center the image */
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+  overflow: hidden; /* Hide parts of the image that exceed the container size */
+}
+.product-image img {
+  max-width: 100%; /* Ensures image is not wider than the container */
+  max-height: 100%; /* Ensures image is not taller than the container */
+  object-fit: contain ; /* Cover ensures the image covers the area, may crop */
+}
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1; /* Ensures the info section fills the remaining space */
+}
+.product-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.product-description {
+  font-size: 0.9em;
+}
+.product-price {
+  font-size: 1em;
+  font-weight: bold;
+}
+.add-to-cart-button {
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.add-to-cart-button:hover {
+  background-color: #035817;
+}
+/**********************************************************************/
+
+
+/***************option buttons size and looks*******************/
+#categorySelect, button {
+  width: auto; /* Makes the select and button take the full container width */
+  height: auto; /* Sets a fixed height for larger touch targets */
+  font-size: 1.2em; /* Increases the text size inside the select and button */
+  padding: 5px; /* Adds some space inside around the text */
+  margin-top: 5px; /* Adds some space above the select and button */
+}
+
+button {
+  background-color: #4CAF50; /* Example background color */
+  color: white; /* Text color */
+  border: 1px solid #398439; /* Border color */
+  cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+}
+/***************************************************************/
+
+
+/**************** Container for the icon buttons ****************/
+.icon-buttons-container {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-between; /* Adjust this to 'space-between' if you want them spaced across the container */
+  align-items: center; /* Center align the icons vertically */
+}
+
+/* buttons for the heart and carton icons */
+.icon-button {
+  background: none;
+  border: 2px solid black; /* Black border around the icons */
+  border-radius: 5px; /* Optional: adds rounded corners to the border */
+  color: black; /* Black color for the icons themselves */
+  cursor: pointer;
+  font-size: 2em; /* Adjust size as needed */
+  padding: 0.2em; /* Reduced padding */
+  margin: 0 5px; /* Adds a little space between the buttons */
+}
+
+/* Optional: Add some hover effect for the buttons */
+.icon-button:hover {
+  color: #555; /* Change color on hover */
+  border-color: #555; /* Change border color on hover */
+}
+
+/* Reset the default button styles */
+.icon-button:focus {
+  outline: none;
+}
+
+
+/* COLOR SCHEME AND FONT SCHEME */
+/* Set default font styles */
+body {
+  background-color: #f5f5dc; /* beige background */
+  font-family: 'Oxygen', sans-serif; /* Default font */
+  color: #333; /* Default text color, you can choose what you prefer */
+}
+
+/* Style for headers using Nunito font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  color: #559C29; /* Dark green color for headers */
+}
+
+/* Specific module styling */
+.module {
+  background-color: #559C29; /* Dark green background for modules */
+  color: #fff; /* White text for modules */
+}
+

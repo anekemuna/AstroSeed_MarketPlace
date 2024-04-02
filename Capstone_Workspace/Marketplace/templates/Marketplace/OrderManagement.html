@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/order_management.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Order History</a></li>
+                <li><a href="#">Customer List</a></li>
+                <li><a href="#">Inventory</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-support">
+            <a href="#">Support</a>
+        </div>
+    </div>
+    <div class="content">
+        <!-- Your main content goes here -->
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

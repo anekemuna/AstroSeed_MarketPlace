@@ -31,7 +31,7 @@ urlpatterns = [
     path('reviews/', views.reviews_page, name = 'reviews'),
     
     #OrderMangement
-    path('reviews/', views.ordermanagement_page, name = 'ordermanagementPage'),
+    path('ordermanagement/', views.ordermanagement_page, name = 'ordermanagementPage'),
 
     #support page for sellers
     path('support/', views.support_page, name = 'support'),
