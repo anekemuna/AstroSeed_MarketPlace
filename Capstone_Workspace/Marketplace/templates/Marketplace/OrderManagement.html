@@ -3,32 +3,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Management</title>
     <link rel="stylesheet" type="text/css" href="{% static 'myapp/order_management.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <img src="{% static 'images/logo.png' %}" alt="Logo">
+     <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class="bx bxl-codepen"></i>
+                <span>AstroSeed</span>
+            </div>
+            <i class="bx bx-menu" id="toggle-sidebar-button" onclick="toggleSidebar()"></i>
         </div>
-        <div class="sidebar-menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">Customer List</a></li>
-                <li><a href="#">Inventory</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
+        <div class="user">
+            <img src="{% static 'images/test_user_pic.jpeg' %}" alt="Profile Pic" class="profile-pic">
+            <div>
+                <p class="bold">Test User</p>
+                <p>Seller</p>
+            </div>
         </div>
-        <div class="sidebar-support">
-            <a href="#">Support</a>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="bx bxs-grid-alt"></i>
+                    <span class="nav-item">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-package"></i>
+                    <span class="nav-item">Orders</span>
+                </a>
+                <span class="tooltip">Orders</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-folder"></i>
+                    <span class="nav-item">Inventory</span>
+                </a>
+                <span class="tooltip">Inventory</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-group"></i>
+                    <span class="nav-item">Customers</span>
+                </a>
+                <span class="tooltip">Customers</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-message-rounded-dots"></i>
+                    <span class="nav-item">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-cog"></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-support"></i>
+                    <span class="nav-item">Support</span>
+                </a>
+                <span class="tooltip">Support</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+     </div>
+    <div class="main-content">
+        <div class="container">
+            <h1>Code Commerce</h1>
+            <h1>Right Side</h1>
         </div>
-    </div>
-    <div class="content">
         <!-- Your main content goes here -->
     </div>
-    <script src="{% static 'js/script.js' %}"></script>
 </body>
+<script src="{% static 'myapp/order_management.js' %}"></script>
 </html>
