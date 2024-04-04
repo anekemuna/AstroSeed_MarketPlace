@@ -255,19 +255,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resetToGridDefault() {
-        if (!latestCheckbox.checked && !earliestCheckbox.checked) {
-            // Call your default grid resetting function here
-            // This is a placeholder function; replace with your actual function
-            resetGridToDefault();
-        }
+        window.location.reload();  // Reload the page to reset the view
     }
 
-    // Event listeners for the checkboxes
-    document.getElementById('sortLatestCheckbox').addEventListener('change', function() {
-        // If the latest checkbox is checked
+    // Event listeners for sorting checkboxes for date 
+    const sortLatest = document.getElementById('sortLatestCheckbox');
+    const sortOldest = document.getElementById('sortoldestChechbox');
+
+    sortLatest.addEventListener('change', function() {
         if (this.checked) {
-            // Uncheck the earliest checkbox and sort by latest date
-            document.getElementById('sortEarliestCheckbox').checked = false;
+            sortOldest.checked = false;
             sortProductsByDate(true);
         } else {
             // If unchecked, reset to the original grid view
@@ -275,11 +272,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    document.getElementById('sortEarliestCheckbox').addEventListener('change', function() {
-        // If the earliest checkbox is checked
+    sortOldest.addEventListener('change', function() {
         if (this.checked) {
-            // Uncheck the latest checkbox and sort by earliest date
-            document.getElementById('sortLatestCheckbox').checked = false;
+            sortLatest.checked = false;
             sortProductsByDate(false);
         } else {
             // If unchecked, reset to the original grid view

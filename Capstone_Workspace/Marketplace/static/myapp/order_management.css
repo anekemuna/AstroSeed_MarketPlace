@@ -1,0 +1,49 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-logo {
+    padding: 20px;
+}
+
+.sidebar-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu ul li {
+    padding: 10px 20px;
+}
+
+.sidebar-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar-support {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Content styles */
+.content {
+    margin-left: 250px; /* Width of the sidebar */
+    padding: 20px;
+}
