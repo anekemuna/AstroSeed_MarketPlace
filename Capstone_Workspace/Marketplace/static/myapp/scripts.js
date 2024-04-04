@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     //sorting by date!
-    // Function to sort products by date
+    //Function to sort products by date
     function sortProductsByDate(isLatest) {
         const productsContainer = document.querySelector('.right-content');
         let products = Array.from(productsContainer.getElementsByClassName('product-card'));
@@ -254,6 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
         products.forEach(product => productsContainer.appendChild(product));
     }
 
+    // THIS IS WHERE YOU CHANGE THE FUNCTION WHERE YOU NEED TO FIX WHEN SWITCHING GRID TO LIST VIEW FOR SORTING
     function resetToGridDefault() {
         window.location.reload();  // Reload the page to reset the view
     }
@@ -267,8 +268,13 @@ document.addEventListener("DOMContentLoaded", function() {
             sortOldest.checked = false;
             sortProductsByDate(true);
         } else {
-            // If unchecked, reset to the original grid view
-            resetToGridDefault();
+            // When in list form you can checkbox sortLatest and when unchecked it wont change to grid view
+            // it will return to the list format when first unchecking the grid view checkbox
+            if (toggleViewCheckbox.checked){
+                resetToGridDefault();
+            }else{ 
+                sortProductsByDate(true);
+            }
         }
     });
 
@@ -277,10 +283,22 @@ document.addEventListener("DOMContentLoaded", function() {
             sortLatest.checked = false;
             sortProductsByDate(false);
         } else {
-            // If unchecked, reset to the original grid view
-            resetToGridDefault();
+            // When in list form you can checkbox sortOldest and when unchecked it wont change to grid view
+            // it will return to the list format when first unchecking the grid view checkbox
+            if (toggleViewCheckbox.checked){
+                resetToGridDefault();   
+            }else{
+                sortProductsByDate(true); 
+            }
         }
     });
+
+
+    ////
+    ////
+    //PLEASE UPDATE THE LIST VIEW so it can look like list form
+    //CURRENTLY it shows really thick cards in list view. It should be a rectangle. Its a big box rn 
+    
     
 });
 
