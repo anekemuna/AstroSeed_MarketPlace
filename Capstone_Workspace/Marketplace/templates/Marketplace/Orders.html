@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer's Orders Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/orders.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="orders-header">
+    ORDERS
+    <div class="home-button-container">
+        <button class="icon-button" onclick="location.href='{% url 'buyer_home_page' %}';" title="homepage">
+            <i class="fa fa-home"></i>
+        </button>
+    </div>
+</header>
+
+<div class="main-container">
+    <div id="current-orders" class="section">
+        <div class="section-header">Current Orders</div>
+        <div class="scroll-container">
+            <!-- Product Card 1 -->
+            <div class="product-card" onclick="openProductModal('orange')">
+    <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+    <div class="product-details">
+        <h3>Orange</h3>
+        <p class="status">Processing</p>
+        <p class="date-ordered">Ordered: April 3, 2024</p>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <!-- Dynamic content will be loaded here based on the product clicked -->
+        <h3>Product Details</h3>
+        <img src="{% static 'images/orange.jpg' %}" alt="Product Image" id="modalImage">
+        <p id="modalStatus"></p>
+        <p id="modalDateOrdered"></p>
+        <!-- Add more details as necessary -->
+    </div>
+</div>
+
+<!-- Separate link for opening product details in a new tab (optional) -->
+            <!-- Repeat for other current orders -->
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="past-orders" class="section">
+        <div class="section-header">Past Orders</div>
+        <!-- Add your past orders content here -->
+        <div class="scroll-container">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Repeat for other current orders -->
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="returned-orders" class="section">
+        <div class="section-header">Returned Orders</div>
+        <!-- Add your returned orders content here -->
+        <div class="scroll-container">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Repeat for other current orders -->
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="product-image" src="{% static 'images/orange.jpg' %}" alt="Orange">
+                <div class="product-details">
+                    <h3>Orange</h3>
+                    <p class="status">Processing</p>
+                    <p class="date-ordered">Ordered: April 3, 2024</p>
+                    <button class="review-button">Reviews</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<aside class="side-container">
+    <div class="section-header">Recommendations</div>
+    <!-- Product Card for Recommendation -->
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+    <!-- Repeat for other recommendations -->
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-card recommendation-card">
+        <img class="product-image" src="{% static 'images/spinach.jpg' %}" alt="Spinach">
+        <div class="product-details">
+            <h3 class="product-name">Sample Product</h3>
+            <p class="product-price">$19.99</p>
+            <div class="rating">★★★★☆</div>
+            <p class="product-description">A brief highlight of the product.</p>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+</aside>
+
+<script src="{% static 'myapp/orders.js' %}"></script>
+
+</body>
+</html>

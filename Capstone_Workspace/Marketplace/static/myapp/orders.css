@@ -1,0 +1,212 @@
+/*resets css when browser messes up*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the default background color */
+body {
+    background-color: #f5f5dc;
+}
+
+/* Set the default text color */
+    body {
+    color: #000000; /* Assuming you want black text */
+    font-family: 'Oxygen', sans-serif; /* Set the default body font to Oxygen */
+}
+
+/* Set Nunito for headers */
+    h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700; /* Optional: If you want all headers to be bold */
+}
+
+
+/* Apply Oxygen to other text elements, if different from the body */
+p, li, a /* and other selectors */ {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400; /* Normal font weight */
+}
+
+.orders-header {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px 0; /* Increase padding to make header taller */
+    border-bottom: 1px solid #ccc; /* Border to separate header from the content */
+    position: relative;  /*added for homepage icon*/
+}
+
+/* Clear floats after the containers */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-container,
+.side-container {
+    box-sizing: border-box; /* Include padding and border in the width */
+    float: left; /* Float left to keep them inline */
+}
+
+/*left container*/
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 60px); /* Adjust if your header height is different */
+    width: calc(80% - 1px); /* Updated to 80% and accounting for the border */
+    padding: 15px;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    overflow-y: auto;
+}
+
+/*right container*/
+.side-container {
+    height: calc(100vh - 60px); /* Fixed height based on the viewport height minus the header */
+    width: 20%; /* Width remains 20% of the parent container */
+    padding: 15px;
+    text-align: center;
+    overflow-y: auto; /* Enables vertical scrolling */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.section-header {
+    font-size: 27px; /* Increase font size for section headers */
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 0; /* Reduce or remove the top margin */
+    padding-top: 0px; /* Add or reduce top padding as needed */
+}
+
+.section {
+    flex: 1; /* Flex-grow to fill the container equally */
+    margin-bottom: 30px;
+    padding-bottom: 10px; /* Spacing at the bottom of each section */
+    border-bottom: 1px solid #eaeaea; /* Light border for each section */
+}
+
+/*homepage icon to return back to the product homepage*/
+.home-button-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%); /* Centers the button vertically */
+    padding-right: 30px; /* Add some space from the right edge */
+}
+  
+.icon-button {
+/* Add styles for your icon button here */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+    background: none; /* Optional: removes default button background */
+    border: none; /* Optional: removes default button border */
+    font-size: 24px; /* Adjust size as needed */
+}
+
+/*the website page adjust based on phone, computer and tablet format.*/
+@media screen and (max-width: 768px) {
+    .main-container,
+    .side-container {
+        float: none;
+        width: auto;
+        height: auto; /* Reset height for mobile */
+        padding: 15px 0; /* Adjusted padding for mobile */
+        border: none; /* Remove borders for smaller screens */
+    }
+}
+
+
+/*STYLING FOR THE PRODUCT CARD SCROLL HORIZONTALLY*/
+.section {
+    flex: 1; /* Flex-grow to fill the container equally */
+    margin-bottom: 30px;
+    padding-bottom: 10px; /* Spacing at the bottom of each section */
+    border-bottom: 1px solid #eaeaea; /* Light border for each section */
+}
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.product-card {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 250px; /* Adjust the width as desired */
+    height: auto; /* Or a fixed height if you prefer */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased alpha for darker shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Optional: adds a transition effect when the shadow changes */
+    overflow: hidden;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Shadow appears on hover */
+}
+
+.product-image {
+    width: 100%; /* Image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 8px;
+}
+
+.status, .date-ordered {
+    font-size: 0.9em;
+    margin: 4px 0;
+}
+
+.review-button {
+    padding: 6px 12px;
+    margin-top: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/*STYLING FOR THE PRODUCT CARD FOR THE RECOMMENDED CONTAINER*/
+.recommendation-card {
+    width: 50%; /* Adjust this to half the width of the parent container */
+    margin: auto; /* This will center the card in the parent container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional for styling */
+    /* The rest of your existing styles */
+    /* Make sure other properties like margin, padding are adjusted to suit the new size */
+}
+
+
+/*OPENING MINI WIDNOW WHEN PRESSING ON A PRODUCT*/
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Ensure it's on top of other content */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Positioning */
+    padding: 20px;
+    width: 80%; /* Or your preferred width */
+    height: 70%;
+    box-sizing: border-box;
+}
+
+.close {
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
