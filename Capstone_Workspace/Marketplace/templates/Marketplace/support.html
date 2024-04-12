@@ -1,1 +1,67 @@
-<!--SELLER PAGE-->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/support.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+     <div class="sidebar">
+        <div class="top">
+            <div class="back">
+                <i class="bx bx-arrow-back" id="back-button"></i>
+            </div>
+            <div class="logo">
+                <i class="bx bxl-codepen"></i>
+                <span>AstroSeed</span>
+            </div>
+            
+        </div>
+        <div class="user">
+            <img src="{% static 'images/test_user_pic.jpeg' %}" alt="Profile Pic" class="profile-pic">
+            <div>
+                <p class="bold">Test User</p>
+                <p>Seller</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="#" onclick="showSection('home')">
+                    <i class="bx bxs-home"></i>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="showSection('feedback')">
+                    <i class="bx bx-star"></i>
+                    <span class="nav-item">Feedback</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="showSection('information')">
+                    <i class="bx bx-info-circle"></i>
+                    <span class="nav-item">Information Request</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="showSection('faq')">
+                    <i class="bx bx-question-mark"></i>
+                    <span class="nav-item">FAQ</span>
+                </a>
+            </li>
+        </ul>
+     </div>
+    <div class="main-content" id="mainContent">
+        <div class="container" id="container">
+
+        </div>
+        
+        <!-- Your main content goes here -->
+    </div>
+</body>
+<script src="{% static 'myapp/support.js' %}"></script>
+</html>
