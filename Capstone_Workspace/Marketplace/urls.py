@@ -1,8 +1,10 @@
 # Marketplace/urls.py
 
 from django.urls import include, path
-
 from . import views
+
+from .views import product_page, add_product
+
 
 urlpatterns = [
     
@@ -35,5 +37,9 @@ urlpatterns = [
 
     #support page for sellers
     path('support/', views.support_page, name = 'support'),
+
+
+    #Alfaisal
+    path('add_product/', views.add_product, name='add_product'),
 ]
 

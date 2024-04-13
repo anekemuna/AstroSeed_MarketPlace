@@ -31,10 +31,19 @@ STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'Marketplace', 'static'),
     'C:/Users/watz1/Documents/Capstone_Workspace/Marketplace/static',
+
+    #Alfaisal
+    os.path.join(BASE_DIR, 'Marketplace', 'static'),
+    'D:/github/AstroSeed_MarketPlace/Capstone_Workspace/Marketplace/static',
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
+
+#Alfaisal 
+MEDIA_URL = '/media/' # The URL prefix for media files.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # The directory where files uploaded by users will go.
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
