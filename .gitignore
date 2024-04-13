@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.pyc
 __pycache__/
 db.sqlite3
@@ -5,3 +6,9 @@ db.sqlite3
 /media/
 .venv/
 *.log
+=======
+
+.venv/Scripts/python.exe
+Capstone_Workspace/db.sqlite3
+/.venv
+>>>>>>> main

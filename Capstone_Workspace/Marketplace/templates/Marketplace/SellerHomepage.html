@@ -1,5 +1,4 @@
-<!-- Seller Home Page -->
-<!--CSS & HTML-->>
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Oxygen:400,700" rel="stylesheet">
     <style>
         body {
-            font-family: serif;
+            font-family: 'Oxygen', sans-serif;
             margin: 0;
-            padding: 0;
-            background: #E7EEEB;
+            padding: 40px;
+            background: #f5f5dc;
         }
 
         header {
@@ -25,8 +24,9 @@
             padding: 5px;
         }
         header img.logo {
-            height: 100px;
-            margin-right: auto;
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
         }
         header h1 {
             font-family: serif;
@@ -46,7 +46,7 @@
         }
         .icon-button i {
             color: #333;
-            font-size: 20px;
+            font-size: 25px;
         }
         .icon-button:hover i { /* Hover effect */
             color: gray;
@@ -67,14 +67,14 @@
             float: left;
             width: 23%;
             margin: 1%;
-            background: #fff;
+            background: #f5f5dc;
             text-align: center;
             padding: 30px 0;
             box-sizing: border-box;
             border-radius: 10px;
         }
         .nav-button {
-            background: #fff;
+            background: #f5f5dc;
             border: none;
             color: #333;
             text-align: center;
@@ -115,8 +115,8 @@
             float: left;
             width: 60%;
             border-right: 2px solid #ccc;
-        padding-right: 20px;
-        box-sizing: border-box;
+            padding-right: 20px;
+            box-sizing: border-box;
         }
         .form-section form .form-control {
             margin-bottom: 10px;
@@ -136,8 +136,8 @@
         .action-section {
             float: right;
             width: 30%;
-        padding-left: 20px;
-        box-sizing: border-box;
+            padding-left: 20px;
+            box-sizing: border-box;
 
         }
         .action-section button,
@@ -152,36 +152,23 @@
             height: 150px;
         }
 
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 
 
 <body>
 <header>
-    <img src="astro_logo.jfif" alt="hh" class="logo">
+    <img src="{% static 'images/logo.png' %}" alt="logo" class="logo" style="height: 100px;">
     <h1>Astro Seed: Online Market Place</h1>
-    <!--h2>Seller View</h2-->
-    <!-- Bell and Profile icones -->
     <div class="icons">
-        <button class="fas fa-bell" onclick="location.href='{% url 'notifications' %}';" title="Notifications"/button>
+        <button class="icon-button" aria-label="Notifications" onclick="location.href='{% url 'notifications' %}';">
+            <i class="fas fa-bell"></i>
         </button>
         <button class="icon-button" aria-label="User Profile">
             <i class="fas fa-user"></i>
         </button>
     </div>
-</div>
 </header>
-<br><br>
 
 <nav>
     <button class="nav-button" onclick = "location.href='{% url 'ordermanagementPage' %}';">
@@ -205,7 +192,7 @@
 
 <div class="box">
 <div class="form-section">
-    <form>
+    <!--form>
         <input type="text" placeholder="Name" class="form-control">
         <input type="Price" placeholder="$ Price" class="form-control">
         <input type="text" placeholder="Type" class="form-control">
@@ -213,25 +200,46 @@
         <textarea placeholder="Description" class="form-control"></textarea>
         <button type="button">Upload Images +</button>
         <button type="button">Add Product</button>
+    </form-->
+    <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name" class="form-control" required>
+            <input type="number" name="price" placeholder="$ Price" class="form-control" required>
+            <input type="text" name="type" placeholder="Type" class="form-control" required>
+            <input type="number" name="quantity" placeholder="Quantity" class="form-control" required>
+            <textarea name="description" placeholder="Description" class="form-control" required></textarea>
+            <input type="file" name="image" class="form-control">
+            <button type="submit">Add Product</button>
+            <button type="button">Upload Images +</button>
     </form>
-    <!->
+
+
     <div class="action-section">
         <button>Edit</button>
         <button>Delete</button>
-        <select>
-            <option value="lettuce">Lettuce</option>
-            <option value="tomato">Tomato</option>
-            <!-- Add more options here -->
+
+        <select id="product-select">
+            <option value="broccoli">broccoli</option>
+            <option value="carrot">carrot</option>
         </select>
-        <img src="astro_logo.jfif" class="product">
+        <img id="product-image" src="{% static 'images/' %}" class="product" alt="Product Image">
     </div>
 </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const productSelect = document.getElementById('product-select');
+    const productImage = document.getElementById('product-image');
 
+    productSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        const imageName = selectedValue + '.jpg'; // Assuming image name is the same as the option value
+        productImage.src = '{% static "images/" %}' + imageName;
+        productImage.alt = selectedValue.charAt(0).toUpperCase() + selectedValue.slice(1); // Capitalize the first letter for alt text
+    });
+});
 
-<footer>
-    <p>Footer content here</p>
-</footer>
+</script>
 
 </body>
 </html>
