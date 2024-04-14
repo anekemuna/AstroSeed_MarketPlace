@@ -1,21 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to show the dropdown menu
-    function showDropdown() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    };
+     // Toggle between list view and grid view
+     var toggleViewCheckbox = document.getElementById('gridViewCheckbox');
+     var productsContainer = document.querySelector('.right-content');
+ 
+ 
+     function toggleView() {
+         if (toggleViewCheckbox.checked) {
+             productsContainer.classList.add('grid-view');
+             productsContainer.classList.remove('list-view');
+         } else {
+             productsContainer.classList.remove('grid-view');
+             productsContainer.classList.add('list-view');
+         }
+     }
+ 
+     // And also bind it to the change event of the checkbox
+     toggleViewCheckbox.addEventListener('change', toggleView);
+ 
+     // Make sure to call this function to set the initial view on page load if necessary
+     toggleView();
 
 
     // Search bar functionality
@@ -34,27 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
-    // Toggle between list view and grid view
-    var toggleViewCheckbox = document.getElementById('gridViewCheckbox');
-    var productsContainer = document.querySelector('.right-content');
-
-    function toggleView() {
-        if (toggleViewCheckbox.checked) {
-            productsContainer.classList.add('grid-view');
-            productsContainer.classList.remove('list-view');
-        } else {
-            productsContainer.classList.remove('grid-view');
-            productsContainer.classList.add('list-view');
-        }
-    }
-
-    // Make sure to call this function to set the initial view on page load if necessary
-    toggleView();
-
-    // And also bind it to the change event of the checkbox
-    toggleViewCheckbox.addEventListener('change', toggleView);
-
     
     //this function helps user show products card to their search name
     var searchBar = document.getElementById('searchBar');
@@ -134,7 +116,9 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
  
+
     
+    ////////////////////////////////////////////////////////////////////////
     // Function to sort products by price
     function sortProductsByPrice(ascending) {
         let products = Array.from(document.getElementsByClassName('product-card'));
@@ -144,13 +128,18 @@ document.addEventListener("DOMContentLoaded", function() {
             return ascending ? priceA - priceB : priceB - priceA;
         });
 
+        const productsContainer = document.querySelector('.right-content');
         productsContainer.innerHTML = '';
         products.forEach(product => productsContainer.appendChild(product));
     }
 
-    // Function to reset to the default view
-    function resetToDefaultView() {
-        window.location.reload();  // Reload the page to reset the view
+    // Function to reset to list view without reloading
+    function resetToListView() {
+        const productsContainer = document.querySelector('.right-content');
+        const gridViewCheckbox = document.getElementById('gridViewCheckbox');
+        gridViewCheckbox.checked = false;
+        productsContainer.classList.remove('grid-view');
+        productsContainer.classList.add('list-view');
     }
 
     // Event listeners for sorting checkboxes
@@ -162,7 +151,11 @@ document.addEventListener("DOMContentLoaded", function() {
             highToLowCheckbox.checked = false;
             sortProductsByPrice(true);
         } else {
-            resetToDefaultView();
+            if (toggleViewCheckbox.checked){
+                resetToGridDefault();
+            }else{ 
+                sortProductsByDate(true);
+            }
         }
     });
 
@@ -171,11 +164,17 @@ document.addEventListener("DOMContentLoaded", function() {
             lowToHighCheckbox.checked = false;
             sortProductsByPrice(false);
         } else {
-            resetToDefaultView();
+            if (toggleViewCheckbox.checked){
+                resetToGridDefault();
+            }else{ 
+                sortProductsByDate(true);
+            }
         }
     });
+    ////////////////////////////////////////////////////////////////////////
 
-    // Implementing the filters functionalities 
+
+    // Implementing the filters functionalities drop down boxes
     document.querySelectorAll('.categorySelect').forEach(select => {
         select.addEventListener('change', filterProducts);
     });
@@ -292,12 +291,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-
-
-    ////
-    ////
-    //PLEASE UPDATE THE LIST VIEW so it can look like list form
-    //CURRENTLY it shows really thick cards in list view. It should be a rectangle. Its a big box rn 
     
     
 });

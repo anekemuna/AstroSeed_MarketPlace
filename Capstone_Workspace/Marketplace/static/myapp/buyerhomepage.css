@@ -121,7 +121,7 @@ body, html {
 /***************************ProductCard********************************/
 /* grid-view */
 .right-content.grid-view .product-card {
-  margin: 10px;
+  margin: 44.2px;
   display: inline-block;
 }
 /* end grid-view */
@@ -134,7 +134,7 @@ body, html {
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Align items vertically */
   justify-content: start; /* Align items to the start of the card */
-  height: 100%;
+  height: auto;
   width: 100%; /* Fit to the container width */
   box-sizing: border-box; /* Include padding and borders in the element's total width and height */
 }

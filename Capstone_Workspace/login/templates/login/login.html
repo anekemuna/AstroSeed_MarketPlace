@@ -21,21 +21,39 @@
         }
         
         .title{
-            margin-left: 40%;
+            text-align: center;
             padding: 10px;
             margin-bottom: 0.5rem;
             color: #fff;
         }
 
         .wrapper .header{
-            max-width: 350px;
+            
+            max-width: 400px;
             width: 100%;
             height: auto;
             margin: 50px auto;
         }
+
+        .wrapper .header .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .wrapper .header .form .btn {
+            margin: 10px 0;
+            background-color: #4282bd;
+            border: 1px solid #4282bd;
+            border-radius: 4px;
+            text-align: center;
+            padding: 5px;
+            width: 30%;
+        }
         
         .wrapper .header .top,
         .wrapper .signup{
+            text-align: center;
             background: #3d3c3c;
             padding: 40px 40px 20px;
         }
@@ -45,7 +63,9 @@
         }
         
         .wrapper .header .form .input_field .input{
-            width: 100%;
+            max-width: 550px;
+            width: 100%; 
+            margin: auto; 
             background: #fafafa;
             border: 1px solid #efefef;
             font-size: 12px;
@@ -57,17 +77,7 @@
         .wrapper .header .form .input_field .input:focus{
             border: 1px solid #b2b2b2;
         }
-        
-        .wrapper .header .form .btn{
-            margin: 10px 0;
-            background-color: #4282bd;
-            border: 1px solid #4282bd;
-            border-radius: 4px;
-            text-align: center;
-            padding: 5px;
-            width: 30%;
-            margin-left: 35%;
-        }
+    
         
         .wrapper .header .or{
             display: flex;
@@ -115,7 +125,7 @@
         <div class="header">
             <div class="top">
                 <div class="title">
-                    <h1>Market</h1>
+                    <h1> MarketPlace </h1>
                 </div>
                 {% if error_message %}
                   <p class="error-message">{{ error_message }}</p>
