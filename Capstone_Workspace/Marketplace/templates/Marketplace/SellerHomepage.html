@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Oxygen:400,700" rel="stylesheet">
     <style>
         body {
-            font-family: 'Oxygen', sans-serif;
+            font-family: 'Nunito', sans-serif;
             margin: 0;
             padding: 40px;
             background: #f5f5dc;
@@ -29,7 +29,7 @@
             margin-right: 20px;
         }
         header h1 {
-            font-family: serif;
+            font-family: 'Nunito', sans-serif;
             margin-right: auto;
             color: #333;
         }
@@ -99,11 +99,11 @@
         /*******************/
 
         .box {
-        border: 2px solid #559C29;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px; 
-        background: #559C29; 
+            border: 2px solid #559C29;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px; 
+            background: #559C29; 
         }
 
         .form-section {
@@ -150,6 +150,59 @@
         }
         .action-section img {
             height: 150px;
+        }
+
+        label.custom-file-upload {
+            display: inline-block;
+            padding: 10px 12px;
+            cursor: pointer;
+            background: white; /* Example background */
+            border-radius: 5px; /* Example border-radius */
+        }
+
+        /* This CSS will visually hide the file input but still make it accessible */
+        input[type="file"] {
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        /* Style your custom upload button (you can adjust as needed) */
+        .label-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #559C29;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px; /* Spacing from the next element */
+        }
+
+        .required-star {
+            color: red; /* Color the star red */
+            padding-left: 5px; /* Add a little space to the left of the star */
+        }
+
+        /* Existing styles */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #559C29;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+            outline: none;
+        }
+
+        .button:hover {
+            background-color: gray;
         }
 
     </style>
@@ -202,18 +255,20 @@
         <button type="button">Add Product</button>
     </form-->
     <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="text" name="name" placeholder="Name" class="form-control" required>
-            <input type="number" name="price" placeholder="$ Price" class="form-control" required>
-            <input type="text" name="type" placeholder="Type" class="form-control" required>
-            <input type="number" name="quantity" placeholder="Quantity" class="form-control" required>
-            <textarea name="description" placeholder="Description" class="form-control" required></textarea>
-            <input type="file" name="image" class="form-control">
-            <button type="submit">Add Product</button>
-            <button type="button">Upload Images +</button>
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" class="form-control" required>
+        <input type="number" name="price" placeholder="$ Price" class="form-control" required>
+        <input type="text" name="type" placeholder="Type" class="form-control" required>
+        <input type="number" name="quantity" placeholder="Quantity" class="form-control" required>
+        <textarea name="description" placeholder="Description" class="form-control" required></textarea>
+        
+        <label for="image-upload" class="custom-file-upload">Upload Images<span class="required-star">*</span></label>
+        <input type="file" id="image-upload" name="image" class="form-control">
+
+        <button type="submit" class="button">Add Product</button>
     </form>
-
-
+    
+        
     <div class="action-section">
         <button>Edit</button>
         <button>Delete</button>
@@ -222,7 +277,7 @@
             <option value="broccoli">broccoli</option>
             <option value="carrot">carrot</option>
         </select>
-        <img id="product-image" src="{% static 'images/' %}" class="product" alt="Product Image">
+        <img id="product-image" src="{% static 'images/broccoli.jpg' %}" class="product" alt="Product Image">
     </div>
 </div>
 </div>
