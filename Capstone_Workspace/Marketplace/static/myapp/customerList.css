@@ -1,0 +1,80 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 24px;
+    color: black;
+}
+
+header input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 20%;
+}
+
+section {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+}
+
+.grid {
+    display: grid;
+    margin-top: 10px;
+}
+
+.orders .grid {
+    grid-template-columns: 1fr 1fr; /* For orders */
+    gap: 10px;
+}
+
+.information .grid {
+    grid-template-columns: repeat(5, 1fr); /* For customer info */
+    gap: 10px;
+}
+
+.grid-header {
+    font-weight: bold;
+    background-color: #333;
+    color: black;
+    padding: 10px;
+    text-align: left;
+}
+
+.grid div {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eaeaea;
+    text-align: left;
+}
+
+/* Responsive adjustments can be added as needed */
