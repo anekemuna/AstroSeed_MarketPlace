@@ -15,7 +15,7 @@ def seller_page(request):
 
 #cart/checkout page
 def cartPayment_page(request):
-    return render(request, 'Marketplace/Cart_Payment.html')
+    return render(request, 'Marketplace/Checkout.html')
 
 def orders_page(request):
     return render(request, 'Marketplace/Orders.html')
