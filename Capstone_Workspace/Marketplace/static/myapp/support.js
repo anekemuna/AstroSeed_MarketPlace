@@ -4,7 +4,7 @@ function showSection(section) {
 
     switch (section) {
         case 'home':
-            container.innerHTML = '<h1>Welcome to Home Page</h1>';
+            window.location.href = '/seller/';
             break;
         case 'feedback':
             container.innerHTML = '<div class="feedback-wrapper">' +
@@ -104,4 +104,4 @@ function showFAQ(category) {
 }
 
 // Show home page by default
-showSection('home');
+showSection('feedback');
