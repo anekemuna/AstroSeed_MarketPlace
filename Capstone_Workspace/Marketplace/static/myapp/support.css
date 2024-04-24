@@ -19,7 +19,8 @@
     left: 0;
     height: 120vh;
     width: 250px;
-    background-color: #12171e;
+    background: var(--green);
+    /*background-color: #12171e;*/
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
 }
@@ -98,7 +99,7 @@
 /* Content styles */
 .main-content {
     position: relative;
-    background-color: #eee;
+    background-color: var(--backgroundColour);
     min-height: 100vh;
     top: 0;
     left: 80px;
@@ -119,6 +120,9 @@
 
 
 :root {
+    --backgroundColour: #F5F5DC;
+    --green: #559C29;
+    --green-d-1: #3b850d;
     --yellow: #FFBD13;
     --blue: #4383FF;
     --blue-d-1: #3278FF;
@@ -130,7 +134,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: var(--light);
+    background: var(--backgroundColour);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,15 +220,15 @@ textarea {
     font-weight: 500;
 }
 .feedback-btn-group .btn.submit {
-    background: var(--blue);
+    background: var(--green);
     color: var(--white);
 }
 .feedback-btn-group .btn.submit:hover {
-    background: var(--blue-d-1);
+    background: var(--green-d-1);
 }
 .feedback-btn-group .btn.cancel {
     background: var(--white);
-    color: var(--blue);
+    color: var(--green);
 }
 .feedback-btn-group .btn.cancel:hover {
     background: var(--light);
@@ -232,3 +236,17 @@ textarea {
 
 /* Information Request */
 
+input, select {
+    width: 50%; 
+    padding: 5px; /* Some padding */
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1rem; 
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+ }
+
+ textarea[name="infor_request"] {
+    width:70%;
+ }
+  
