@@ -1,10 +1,14 @@
 function showSection(section) {
     var container = document.getElementById('container');
     container.innerHTML = ''; // Clear main content
+    container.classList.remove("centered");
 
     switch (section) {
         case 'home':
             window.location.href = '/seller/';
+            break;
+        case 'logOut':
+            window.location.href = '/';
             break;
         case 'feedback':
             container.innerHTML = '<div class="feedback-wrapper">' +
@@ -29,17 +33,22 @@ function showSection(section) {
             container.classList.add("centered");
             break;
         case 'information':
-            container.innerHTML = '<h1>Information Request Form</h1>' +
+            container.innerHTML = '<h1>Information Request Form</h1> ' +
+                '<br>'+
                 '<form class="information-form">' +
-                'Name: <input type="text"><br>' +
+                '<br> Name: <input type="text"><br>' +
                 'Email: <input type="email"><br>' +
-                'Phone Number: <input type="tel"><br>' +
-                'Text: <textarea name="infor_request" cols="30" rows ="5" placeholder="What do you need?"></textarea><br>' +
+                'Country: <br>' +
+                ' <select>'+
+                '<option value="Suggestions">Suggestions</option>'+
+                '<option value="Questions">Questions</option>'+
+                '<option value="Complaints">Complaints</option>'+
+                '</select> <br><br>' +
+                'Text: <br> <textarea name="infor_request" cols="30" rows ="6" placeholder="What do you need?"></textarea><br>' +
                     '<div class="feedback-btn-group">' +
                         '<button type="submit" class="btn submit">Submit</button>' +
                     '</div>' +
                 '</form>';
-                container.classList.remove("centered");
             break;
         case 'faq':
             container.innerHTML = '<h1>FAQ Section</h1>' +
@@ -48,7 +57,6 @@ function showSection(section) {
                 '<option value="seller">Seller</option>' +
                 '</select>' +
                 '<div class="faq-section" id="faqSection"></div>';
-                container.classList.remove("centered");
             break;
     }
 }
