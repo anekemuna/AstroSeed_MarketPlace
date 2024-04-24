@@ -17,7 +17,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 120vh;
     width: 250px;
     background-color: #12171e;
     padding: 0.4rem 0.8rem;
@@ -50,15 +50,10 @@
     pointer-events: none;
 }
 
-.top .logo i{
-    font-size: 2rem;
-    margin-right: 5px;
-}
-
 .user {
     display: flex;
     align-items: center;
-    margin: 1rem 0;
+    margin: 2rem 0;
 }
 
 .user p {
@@ -67,7 +62,7 @@
 }
 
 .bold {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .sidebar ul li {
@@ -119,8 +114,9 @@
     height: 100vh;
 }
 
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*/
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Oxygen:400,700&display=swap');
+
 
 :root {
     --yellow: #FFBD13;
@@ -133,6 +129,7 @@
 }
 
 body {
+    font-family: 'Nunito', sans-serif;
     background: var(--light);
     display: flex;
     justify-content: center;
