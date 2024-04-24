@@ -57,6 +57,9 @@ function showSection(section) {
                 '<option value="seller">Seller</option>' +
                 '</select>' +
                 '<div class="faq-section" id="faqSection"></div>';
+
+                // Call showFAQ function with default value
+                showFAQ('buyer');
             break;
     }
 }
@@ -93,23 +96,53 @@ function showFAQ(category) {
 
     switch (category) {
         case 'buyer':
-            faqSection.innerHTML = '<h2>Buyer FAQs</h2>' +
-                '<ul>' +
-                '<li>Question 1?</li>' +
-                '<li>Question 2?</li>' +
-                '<li>Question 3?</li>' +
-                '</ul>';
+            faqSection.innerHTML = '<div id="faq" class="faq-body">' +
+                '<div class="faq-header">' +
+                '<h3 class="faq-title">Buyer FAQ\'s</h3>' +
+                '<div class="seperator"></div>' +
+                '</div>' +
+                '<div class="faq-list">' +
+                '<div>' +
+                '<details open>' +
+                '<summary title="How can I track my order?>How can I track my order?</summary>' +
+                '<p class="faq-content">Log into your account to view order history and tracking details. You will also receive email notifications.</p>' +
+                '</details>' +
+                '</div>' +
+                '<div>' +
+                '<details>' +
+                '<summary title="What payment methods do you accept?">What payment methods do you accept?</summary>' +
+                '<p class="faq-content">We accept credit/debit cards, PayPal, and bank transfers. Payment options may vary by location and product.</p>' +
+                '</details>' +
+                '</div>' +
+                // Add more FAQ items here
+                '</div>' +
+                '</div>';
             break;
         case 'seller':
-            faqSection.innerHTML = '<h2>Seller FAQs</h2>' +
-                '<ul>' +
-                '<li>Question A?</li>' +
-                '<li>Question B?</li>' +
-                '<li>Question C?</li>' +
-                '</ul>';
+            faqSection.innerHTML = '<div id="faq" class="faq-body">' +
+            '<div class="faq-header">' +
+            '<h3 class="faq-title">Seller FAQ\'s</h3>' +
+            '<div class="seperator"></div>' +
+            '</div>' +
+            '<div class="faq-list">' +
+            '<div>' +
+            '<details>' +
+            '<summary title="What fees are associated with selling on your platform?>What fees are associated with selling on your platform?</summary>' +
+            '<p class="faq-content">We charge a nominal fee for each successful transaction. Additionally, there may be optional fees for premium features like promoted listings or additional seller services.</p>' +
+            '</details>' +
+            '</div>' +
+            '<div>' +
+            '<details>' +
+            '<summary title="What payment methods do you accept?">What payment methods do you accept?</summary>' +
+            '<p class="faq-content">We accept credit/debit cards, PayPal, and bank transfers. Payment options may vary by location and product.</p>' +
+            '</details>' +
+            '</div>' +
+            // Add more FAQ items here
+            '</div>' +
+            '</div>';
             break;
     }
 }
 
-// Show home page by default
+// Show feedback page by default
 showSection('feedback');
